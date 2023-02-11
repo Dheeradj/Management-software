@@ -18,7 +18,7 @@ router.post('/add',auth.authenticateToken,checkRole.checkRole,(req,res)=>{
 })
 
 router.get('/get',auth.authenticateToken,(req,res,next)=>{
-    var query = "select id,voornaam,achternaam,geslacht,adressennummer,district,telefoonnummer,email from klant";
+    var query = "select id,voornaam,achternaam,geslacht,adressennummer,district,telefoonnummer,email,status from klant";
     connection.query(query,(err,results)=>{
         if(!err){
             return res.status(200).json(results);

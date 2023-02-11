@@ -19,7 +19,7 @@ router.post('/add',auth.authenticateToken,checkRole.checkRole,(req,res)=>{
 })
 
 router.get('/get',auth.authenticateToken,(req,res,next)=>{
-    var query = "select id,bedrijfsnaam,adress,district,directeur,telefoonnummer,website from leverancier";
+    var query = "select id,bedrijfsnaam,adress,district,directeur,telefoonnummer,website,status from leverancier";
     connection.query(query,(err,results)=>{
         if(!err){
             return res.status(200).json(results);

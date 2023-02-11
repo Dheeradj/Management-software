@@ -1,0 +1,95 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout="row">
+                <span class="title-center">{{dialogData.action}} Klant</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="klantForm">
+        <div fxFlexLayout="column">
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Voornaam</mat-label>
+                    <input matInput formControlName="voornaam" required>
+                    <mat-error *ngIf="klantForm.controls.voornaam.touched && klantForm.controls.voornaam.invalid">
+                        <span *ngIf="klantForm.controls.voornaam.errors.required">This field is required</span>
+                        <span *ngIf="klantForm.controls.voornaam.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Achternaam</mat-label>
+                    <input matInput formControlName="achternaam" required>
+                    <mat-error *ngIf="klantForm.controls.achternaam.touched && klantForm.controls.achternaam.invalid">
+                        <span *ngIf="klantForm.controls.achternaam.errors.required">This field is required</span>
+                        <span *ngIf="klantForm.controls.achternaam.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Geslacht</mat-label>
+                    <input matInput formControlName="geslacht" required>
+                    <mat-error *ngIf="klantForm.controls.geslacht.touched && klantForm.controls.geslacht.invalid">
+                        <span *ngIf="klantForm.controls.geslacht.errors.required">This field is required</span>
+                        <span *ngIf="klantForm.controls.geslacht.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Adress</mat-label>
+                    <input matInput formControlName="adressennummer" required>
+                    <mat-error *ngIf="klantForm.controls.adressennummer.touched && klantForm.controls.adressennummer.invalid">
+                        <span *ngIf="klantForm.controls.adressennummer.errors.required">This field is required</span>
+                        <span *ngIf="klantForm.controls.adressennummer.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>District</mat-label>
+                    <input matInput formControlName="district" required>
+                    <mat-error *ngIf="klantForm.controls.district.touched && klantForm.controls.district.invalid">
+                        <span *ngIf="klantForm.controls.district.errors.required">This field is required</span>
+                        <span *ngIf="klantForm.controls.district.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Telefoonnummer</mat-label>
+                    <input matInput formControlName="telefoonnummer" required>
+                    <mat-error *ngIf="klantForm.controls.telefoonnummer.touched && klantForm.controls.telefoonnummer.invalid">
+                        <span *ngIf="klantForm.controls.telefoonnummer.errors.required">This field is required</span>
+                        <span *ngIf="klantForm.controls.telefoonnummer.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" required>
+                    <mat-error *ngIf="klantForm.controls.email.touched && klantForm.controls.email.invalid">
+                        <span *ngIf="klantForm.controls.email.errors.required">This field is required</span>
+                        <span *ngIf="klantForm.controls.email.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()" [disabled]="!(klantForm.valid && klantForm.dirty)">{{action}}</button>
+    <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+</mat-dialog-actions>

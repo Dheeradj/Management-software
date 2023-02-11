@@ -1,0 +1,83 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout="row">
+        <span title="title-center">{{dialogData.action}}</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="leverancierForm">
+        <div fxFlex fxLayout="column">
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Bedrijfsnaam</mat-label>
+                    <input matInput formControlName="bedrijfsnaam" required>
+                    <mat-error *ngIf="leverancierForm.controls.bedrijfsnaam.touched && leverancierForm.controls.bedrijfsnaam.invalid">
+                        <span *ngIf="leverancierForm.controls.bedrijfsnaam.errors.required">This field is required</span>
+                        <span *ngIf="leverancierForm.controls.bedrijfsnaam.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Adress</mat-label>
+                    <input matInput formControlName="adress" required>
+                    <mat-error *ngIf="leverancierForm.controls.adress.touched && leverancierForm.controls.adress.invalid">
+                        <span *ngIf="leverancierForm.controls.adress.errors.required">This field is required</span>
+                        <span *ngIf="leverancierForm.controls.adress.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>District</mat-label>
+                    <input matInput formControlName="district" required>
+                    <mat-error *ngIf="leverancierForm.controls.district.touched && leverancierForm.controls.district.invalid">
+                        <span *ngIf="leverancierForm.controls.district.errors.required">This field is required</span>
+                        <span *ngIf="leverancierForm.controls.district.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Directeur</mat-label>
+                    <input matInput formControlName="directeur" required>
+                    <mat-error *ngIf="leverancierForm.controls.directeur.touched && leverancierForm.controls.directeur.invalid">
+                        <span *ngIf="leverancierForm.controls.directeur.errors.required">This field is required</span>
+                        <span *ngIf="leverancierForm.controls.directeur.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Telefoonnummer</mat-label>
+                    <input matInput formControlName="telefoonnummer" required>
+                    <mat-error *ngIf="leverancierForm.controls.telefoonnummer.touched && leverancierForm.controls.telefoonnummer.invalid">
+                        <span *ngIf="leverancierForm.controls.telefoonnummer.errors.required">This field is required</span>
+                        <span *ngIf="leverancierForm.controls.telefoonnummer.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="row wrap">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Website</mat-label>
+                    <input matInput formControlName="website" required>
+                    <mat-error *ngIf="leverancierForm.controls.website.touched && leverancierForm.controls.website.invalid">
+                        <span *ngIf="leverancierForm.controls.website.errors.required">This field is required</span>
+                        <span *ngIf="leverancierForm.controls.website.errors.pattern">This field is invalid</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()" [disabled]="!(leverancierForm.valid && leverancierForm.dirty)">{{action}}</button>
+    <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+</mat-dialog-actions>

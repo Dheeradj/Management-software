@@ -1,0 +1,74 @@
+<mat-card>
+    <b><span>Manage Klant</span></b>
+    <button mat-flat-button color="primary" class="float-right" (click)="handleAddAction()">Add Klant</button>
+</mat-card>
+
+<hr>
+
+<mat-card>
+    <mat-form-field appearance="fill">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+</mat-card>
+
+<hr>
+
+<div class="responsive_table">
+    <table mat-table [dataSource]="dataSource" class=" mat-elevation-z8">
+
+        
+
+        <ng-containter matColumnDef="voornaam">
+            <th mat-header-cell *matHeaderCellDef>Voornaam</th>
+            <td mat-cell *matCellDef="let element">{{element.voornaam}}</td>
+        </ng-containter>
+
+        <ng-containter matColumnDef="achternaam">
+            <th mat-header-cell *matHeaderCellDef>Achternaam</th>
+            <td mat-cell *matCellDef="let element">{{element.achternaam}}</td>
+        </ng-containter>
+        
+        <ng-containter matColumnDef="geslacht">
+            <th mat-header-cell *matHeaderCellDef>Geslacht</th>
+            <td mat-cell *matCellDef="let element">{{element.geslacht}}</td>
+        </ng-containter>
+
+        <ng-containter matColumnDef="adressennummer">
+            <th mat-header-cell *matHeaderCellDef>Adress</th>
+            <td mat-cell *matCellDef="let element">{{element.adressennummer}}</td>
+        </ng-containter>
+
+        <ng-containter matColumnDef="district">
+            <th mat-header-cell *matHeaderCellDef>District</th>
+            <td mat-cell *matCellDef="let element">{{element.district}}</td>
+        </ng-containter>
+
+
+        <ng-containter matColumnDef="telefoonnummer">
+            <th mat-header-cell *matHeaderCellDef>Telefoonnummer</th>
+            <td mat-cell *matCellDef="let element">{{element.telefoonnummer}}</td>
+        </ng-containter>
+
+        <ng-containter matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let element">{{element.email}}</td>
+        </ng-containter>
+
+        <ng-containter matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let element" class="action-link">
+                <button mat-icon-button color="primary" matTooltip="Edit" (click)="handleEditAction(element)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" matTooltip="Delete" (click)="handleDeleteAction(element)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <mat-slide-toggle (change)="onChange($event.checked,element.id)" matTooltip="Activate or Deactivate" [checked]="element.status"></mat-slide-toggle>
+            </td>
+        </ng-containter>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
+        <tr mat-row *matRowDef="let row;columns:displayedColumns"></tr>
+    </table>
+</div>

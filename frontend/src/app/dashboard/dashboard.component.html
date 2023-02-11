@@ -1,0 +1,40 @@
+<body>
+    <mat-card>
+        <b><span>Dashboard</span></b>
+    </mat-card>
+
+    <br>
+
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <div class="containter">
+                    <h2 class="title">Total leveranciers</h2>
+                    <h1 class="title">{{ data?.Leverancier }}</h1>
+                    <p><button class="button" [routerLink]="['/management']">View leveranciers</button></p>
+                </div>                
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <div class="containter">
+                    <h2 class="title">Total klant </h2>
+                    <h1 class="title">{{ data?.Klant }}</h1>
+                    <p><button class="button" [routerLink]="['/management']">View klant</button></p>
+                </div>                
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <div class="containter">
+                    <h2 class="title">Total users</h2>
+                    <h1 class="title">{{ data?.User }}</h1>
+                    <p><button class="button" [routerLink]="['/management']">View users</button></p>
+                </div>                
+            </div>
+        </div>
+</div>
+
+</body>
